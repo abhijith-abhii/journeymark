@@ -1,0 +1,75 @@
+{
+  "bars": [
+    {
+      "label": "Email",
+      "value": 1943.05
+    },
+    {
+      "label": "Referral",
+      "value": 3231.21
+    },
+    {
+      "label": "Search",
+      "value": 2549.901
+    },
+    {
+      "label": "Social",
+      "value": 2509.19
+    },
+    {
+      "label": "Unattributed",
+      "value": 2731.95
+    }
+  ],
+  "details": {
+    "conversion_revenue_cents": 1296530,
+    "credit_total": 115.0,
+    "revenue_cents_total": 1296530.0,
+    "unattributed": "No eligible touch receives explicit unattributed credit",
+    "window": "(max(previous conversion, lookback start), conversion time]"
+  },
+  "metrics": {
+    "Allocated credit": 115.0,
+    "Conversions": 115,
+    "Model": "linear",
+    "Revenue": "$12,965.30"
+  },
+  "notice": "Model choice can change channel rankings. ROAS uses assigned credit, not causal lift; channel spend covers the synthetic example period.",
+  "rows": [
+    {
+      "attributed_revenue_usd": 1943.05,
+      "attributed_roas": 5.552,
+      "channel": "Email",
+      "credit": 17.802,
+      "spend_usd": 350.0
+    },
+    {
+      "attributed_revenue_usd": 3231.21,
+      "attributed_roas": 6.462,
+      "channel": "Referral",
+      "credit": 26.283,
+      "spend_usd": 500.0
+    },
+    {
+      "attributed_revenue_usd": 2549.901,
+      "attributed_roas": 0.85,
+      "channel": "Search",
+      "credit": 23.686,
+      "spend_usd": 3000.0
+    },
+    {
+      "attributed_revenue_usd": 2509.19,
+      "attributed_roas": 1.141,
+      "channel": "Social",
+      "credit": 21.229,
+      "spend_usd": 2200.0
+    },
+    {
+      "attributed_revenue_usd": 2731.95,
+      "attributed_roas": null,
+      "channel": "Unattributed",
+      "credit": 26.0,
+      "spend_usd": 0.0
+    }
+  ]
+}
