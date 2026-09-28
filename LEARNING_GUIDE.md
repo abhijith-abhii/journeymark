@@ -23,11 +23,15 @@ Follow the README installation block, then: Compare all four models, shorten the
 
 ## Five interview questions
 
-1. **What problem does this project solve, and what is its unit of work?** Explain compare marketing attribution assumptions, identify growth analysts as the audience, and trace one concrete example through the files above. Use the demonstration output rather than hypothetical impact.
-2. **Why did you choose the first design decision?** Allocate each conversion using a documented lookback boundary and exclude touches before a prior conversion. Show the corresponding implementation and a test that would fail if that property were removed.
-3. **How do you protect correctness when inputs or execution change?** Preserve unattributed conversions rather than dropping their revenue. Explain the relevant invalid-input or edge-case test and distinguish a checked property from an untested assumption.
-4. **How do you make results inspectable and reproducible?** Compare first, last, linear and time-decay models while testing conservation of credit and revenue. Point to actual outputs and recorded commands. Explain why a successful example is weaker evidence than a tested boundary or independently reconciled total.
-5. **What would you improve before real deployment or real-data use?** Synthetic paths and spend. Attribution is descriptive allocation, not incrementality or causal ROI. No identity stitching, view-through impressions, cross-device behavior or consent workflow. Choose one limitation, describe the missing evidence, and propose a measurable acceptance check rather than promising production readiness.
+1. **Why compare several attribution models?** First-touch, last-touch, linear and time-decay models encode different assumptions about credit. Differences between them show sensitivity to those assumptions, not which channel caused a purchase.
+
+2. **How are repeated conversions handled?** Eligible touches are bounded by the lookback window and the previous conversion. This prevents an old touch from being reused indiscriminately across repeated purchases.
+
+3. **What happens when no eligible touch exists?** The conversion remains unattributed. Its value is preserved so channel credits plus unattributed value reconcile to the total.
+
+4. **What property do the tests enforce?** Credit conservation across all four models. Allocated value must match eligible conversion value, including the explicit unattributed bucket.
+
+5. **Why is attributed ROAS not causal ROI?** Exposure is not randomly assigned and channel selection is confounded. Attribution assigns credit; estimating incremental return needs an experiment or defensible causal design.
 
 ## Independent exercise
 
@@ -41,6 +45,6 @@ The implementation was developed with substantial AI assistance under Abhijith V
 
 Suggested factual bullet after personally validating the demo:
 
-- Implemented and validated compare marketing attribution assumptions using pandas · Flask, with first/last/linear/time-decay models and documented correctness checks and limitations.
+- Compared four marketing attribution models with lookback and repeat-conversion boundaries; verified credit conservation including unattributed conversion value.
 
 Use [VERIFICATION.md](VERIFICATION.md) to add only measured numbers. Do not claim production traffic, users, savings, upstream acceptance or cloud deployment without corresponding evidence.
